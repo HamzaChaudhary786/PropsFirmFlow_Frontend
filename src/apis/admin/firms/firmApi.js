@@ -41,3 +41,12 @@ export const updateFirm = async (formData, getAccessTokenSilently) => {
   return response.data;
 };
 
+
+export const deleteFirm = async (formData, getAccessTokenSilently) => {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  headers['Content-Type'] = 'multipart/form-data';
+
+  const response = await axios.post(API_BASE, formData, { headers });
+  return response.data;
+};
+
