@@ -3,10 +3,10 @@ import { notFound } from 'next/navigation';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BASE_URL } from '../../../constants/json/dashboard/apiUrl';
+import { API_BASE } from '../../../constants/json/dashboard/apiUrl';
 
 const api = axios.create({
-  baseURL: `${BASE_URL}`,
+  baseURL: `${API_BASE}`,
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
