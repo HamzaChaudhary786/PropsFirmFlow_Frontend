@@ -1,7 +1,7 @@
 // api/firmApi.js
 import axios from 'axios';
-
-const API_BASE = 'http://localhost:5000/api/firm';
+import { API_BASE } from "../../../constants/json/dashboard/apiUrl";
+// const API_BASE = 'http://localhost:5000/api/firm';
 
 // Helper to get Auth0 token
 const getAuthHeaders = async (getAccessTokenSilently) => {
@@ -19,12 +19,12 @@ export const createFirm = async (formData, getAccessTokenSilently) => {
   const headers = await getAuthHeaders(getAccessTokenSilently);
   headers['Content-Type'] = 'multipart/form-data';
 
-  const response = await axios.post(API_BASE, formData, { headers });
+  const response = await axios.post(`${API_BASE}/firm`, formData, { headers });
   return response.data;
 };
 
 export const getAllFirm = async (page = 1, limit = 10) => {
-  const response = await axios.get(`${API_BASE}?page=${page}&limit=${limit}`, {
+  const response = await axios.get(`${API_BASE}/firm?page=${page}&limit=${limit}`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -37,7 +37,7 @@ export const updateFirm = async (formData, getAccessTokenSilently) => {
   const headers = await getAuthHeaders(getAccessTokenSilently);
   headers['Content-Type'] = 'multipart/form-data';
 
-  const response = await axios.post(API_BASE, formData, { headers });
+  const response = await axios.post(`${API_BASE}/firm`, formData, { headers });
   return response.data;
 };
 
@@ -46,7 +46,7 @@ export const deleteFirm = async (formData, getAccessTokenSilently) => {
   const headers = await getAuthHeaders(getAccessTokenSilently);
   headers['Content-Type'] = 'multipart/form-data';
 
-  const response = await axios.post(API_BASE, formData, { headers });
+  const response = await axios.post(`${API_BASE}/firm`, formData, { headers });
   return response.data;
 };
 
