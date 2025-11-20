@@ -33,3 +33,11 @@ export const getAllFirm = async (page = 1, limit = 10) => {
   return response.data; // { total, page, pages, firms }
 };
 
+export const updateFirm = async (formData, getAccessTokenSilently) => {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  headers['Content-Type'] = 'multipart/form-data';
+
+  const response = await axios.post(API_BASE, formData, { headers });
+  return response.data;
+};
+
